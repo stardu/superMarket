@@ -10,6 +10,8 @@ fetch.interceptors.request.use(config => {
             config.data = qs.stringify(config.data)
         }
     } */
+    let token = sessionStorage.getItem('token')
+    config.headers['Authorization'] = `${token}`
     config.headers['Content-Type'] = 'application/json'
     return config
 }, error => {

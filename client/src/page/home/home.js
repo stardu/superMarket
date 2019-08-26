@@ -125,8 +125,8 @@ class Home extends React.Component {
               marginLeft:16,
               marginRight:16,
               marginBottom:24,
-              background: '#fff',
-              minHeight: 280,
+              
+              
             }}
           >
             <Switch>

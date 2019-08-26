@@ -40,6 +40,7 @@ class Login extends React.Component {
               }).then(res=>{
                   if(res.data.code == 200){
                       message.success('登录成功！');
+                      sessionStorage.setItem('token',res.data.data[0].token)
                       setTimeout(()=>{
                         this.props.history.push('/home');
                       },1000)         

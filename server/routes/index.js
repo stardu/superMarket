@@ -1,5 +1,7 @@
 /* var express = require('express');
 var router = express.Router(); */
+import jwt from 'jsonwebtoken'
+
 import upload from '../multer'
 import register from './register'
 import login from './login'
@@ -21,6 +23,24 @@ export default app => {
 
     app.use('/api/register', register);
     app.use('/api/login', login);
+
+    //验证token
+    app.use(function(req, res, next) {
+        console.log(req.headers.authorization)
+        jwt.verify(req.headers.authorization, 'jwt', function(err, decode) {
+            if (err) { //  时间失效的时候/ 伪造的token 
+                console.log(err)
+                res.json({
+                    code: 402,
+                    msg: ['token无效']
+                });
+            } else {
+                console.log(decode)
+                next();
+            }
+        })
+    })
+
     app.use('/api/loginOut', loginOut);
     app.use('/api/goodsType', goodsType);
     app.use('/api/goods', upload.single(), goods);

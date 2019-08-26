@@ -50,7 +50,6 @@ class User {
          * @param  {[string]}   pass_word      密码
          */
     login(req, res, next) {
-        console.log(req.body)
             let user_name = req.body.user_name;
             let a = crypto.createHash('md5');
             let pass_word = a.update(req.body.pass_word).digest('base64');
@@ -72,14 +71,14 @@ class User {
                         return
                     }
 
-                    let content = { name: req.body.user }; // 要生成token的主题信息
-                    let secretOrPrivateKey = "jwt"; // 这是加密的key（密钥）
+                    let content = { name: 'jwt' }; // 要生成token的主题信息
+                    let secretOrPrivateKey = user_name; // 这是加密的key（密钥）
                     let token = jwt.sign(content, secretOrPrivateKey, {
                         expiresIn: 60 * 60 * 1 // 1小时过期
                     });
 
-                    console.log(req.session)
-                    req.session.userName = user_name;
+                    /* console.log(req.session)
+                    req.session.userName = user_name; */
 
                     res.json({
                         code: 200,
