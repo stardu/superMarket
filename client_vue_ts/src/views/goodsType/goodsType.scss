@@ -1,0 +1,54 @@
+#goodsType {
+    padding: 20px;
+    background: white;
+    overflow: hidden;
+    .head {
+        border-bottom: 1px solid#EBEEF5;
+        overflow: hidden;
+        height: 50px;
+        .title {
+            font-size: 20px;
+            font-weight: 500;
+            float: left;
+            line-height: 41px;
+        }
+        .title-btn {
+            float: right;
+        }
+    }
+    .search-input {
+        float: left;
+        width: 400px;
+    }
+    .search-select {
+        float: left;
+        width: 300px;
+        margin-left: 20px;
+        .el-select {
+            float: left;
+            font-size: 12px;
+        }
+        .search-select-tip {
+            float: left;
+            line-height: 40px;
+        }
+    }
+    .search-date {
+        float: left;
+        margin-left: 20px;
+        .el-select {
+            float: left;
+            font-size: 12px;
+        }
+        .search-select-tip {
+            float: left;
+            line-height: 40px;
+        }
+    }
+    .page {
+        margin-top: 1%;
+        margin-bottom: 2%;
+        float: right;
+        margin-right: 3.5%;
+    }
+}
